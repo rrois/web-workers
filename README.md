@@ -17,7 +17,17 @@ worker.terminate()
 
 ## Shared Workers
 Multiple execution Contexts
+Communicate via 'ports' property
+- Firefox 29+
+- Chrome 4+
+- Opera 11.5+
+
+Lifecycle: create -> connect -> startup -> destroy
+close()
+worker.port.close()
+
+chrome://inspect/#workers
 
 
-Info:
+##Info:
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers

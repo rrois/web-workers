@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  </head>
+  <body>
+    <h1>Shared Worker</h1>
+
+    <script>
+      let worker = new SharedWorker('shared-worker.js');
+
+      worker.port.postMessage('First message');
+
+    </script>
+  </body>
+</html>
