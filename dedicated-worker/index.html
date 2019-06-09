@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  </head>
+  <body>
+    <h1>Dedicated Worker</h1>
+
+    <script>
+      let worker = new Worker('dedicated-worker.js');
+
+      let messageObject = {
+        type: 'MESSAGE',
+        content: 'Foo',
+        num: 1
+      };
+      worker.postMessage(messageObject);
+
+      messageObject.content = 'Foo not change';
+    </script>
+  </body>
+</html>
