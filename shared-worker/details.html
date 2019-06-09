@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  </head>
+  <body>
+    <h1>Shared Worker - detail page</h1>
+
+    <script>
+      let worker = new SharedWorker('shared-worker.js');
+
+      worker.port.postMessage('Details page join');
+    </script>
+  </body>
+</html>
+
+
+

@@ -1,17 +1,15 @@
-let ports = [], i = 0;
+let ports = [],
+  i = 0;
 
 this.addEventListener('connect', e => {
   console.log(e);
 
   let port = e.ports[0];
   ports.push(port);
-  port.start();
 
-  setInterval(() => {
-      i++;
-      ports.forEach((port) =>{
-          port.postMessage('Sending Message ' + i);
-      });
-  }, 1000);
+  port.onmessage = (e) => {
+    console.log('Received message: ' + e);
+    ports.forEach( p => p.postMessage('Sending message'));
+  };
 
 });

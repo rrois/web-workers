@@ -8,12 +8,19 @@
 
     <script>
       let worker = new SharedWorker('shared-worker.js');
+      worker.port.postMessage('First message');
 
-      //   worker.port.postMessage('First message');
-      worker.port.start();
-      worker.port.addEventListener('message', e => {
-        console.log('Message received :' + e.data);
-      });
+      worker.port.onmessage = function(e) {
+        console.log('Message received from worker' + e);
+
+        var node = document.createElement('LI');
+        var textnode = document.createTextNode('New item');
+        node.appendChild(textnode);
+        document.getElementById('list').appendChild(node);
+      };
     </script>
+
+    <h2>Details page count</h2>
+    <ul id="list"></ul>
   </body>
 </html>
